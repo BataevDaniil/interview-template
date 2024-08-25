@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { umzug } from './migrator';
+import { umzug } from './db/migrator';
 
 async function bootstrap() {
   await umzug.up();

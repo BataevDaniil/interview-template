@@ -3,8 +3,9 @@ const { Umzug } = require('umzug');
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { query } = require('./pg.js');
 
+const migrationPath = 'src/db/migrations';
 let umzug = new Umzug({
-  migrations: { glob: 'migrations/*.js' },
+  migrations: { glob: `${migrationPath}/*.js` },
   context: { query },
   storage: {
     async executed({ context: { query: pgQuery } }) {
@@ -23,7 +24,7 @@ let umzug = new Umzug({
   },
   logger: console,
   create: {
-    folder: 'migrations',
+    folder: migrationPath,
   },
 });
 
