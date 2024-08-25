@@ -1,0 +1,9 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_USER=interview
+      - POSTGRES_DB=interview
+    ports:
+      - 5432:5432
