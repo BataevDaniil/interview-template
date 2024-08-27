@@ -1,7 +1,10 @@
+if (require.main === module) {
+  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+}
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { Umzug } = require('umzug');
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const { query } = require('./pg.js');
+const { query, pool } = require('./pg.js');
 
 const migrationPath = 'src/db/migrations';
 let umzug = new Umzug({
@@ -31,5 +34,5 @@ let umzug = new Umzug({
 exports.umzug = umzug;
 
 if (require.main === module) {
-  umzug.runAsCLI();
+  umzug.runAsCLI().then(() => pool.end());
 }
