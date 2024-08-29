@@ -18,7 +18,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "dev:db:start": "(docker compose -f docker-compose.dev.yml --env-file ./.env.development up -d --wait || exit 0) && sleep 0.1 && NODE_ENV=development node ./src/db/migrator.js up",
+    "dev:db:start": "(docker compose -f docker-compose.dev.yml --env-file ./.env.development up -d --wait || exit 0) && sleep 0.1 && NODE_ENV=development node ./src/db/migrator.js up && NODE_ENV=development node ./src/db/seed.js",
     "dev:db:stop": "docker compose -f docker-compose.dev.yml --env-file ./.env.development down -v",
     "dev:db:recreate": "npm run dev:db:stop && npm run dev:db:start"
   },
