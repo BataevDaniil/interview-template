@@ -1,0 +1,6 @@
+POST localhost:3000/selection
+Content-Type: application/json
+
+{
+  "realEstates": ["2", "3"]
+}
