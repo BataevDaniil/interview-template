@@ -21,7 +21,7 @@ export class SelectionService {
 
       for (let i = 0; i < realEstates.length; i++) {
         await client.query(
-          'INSERT INTO selection_realestate(realestate_id, selection_id) VALUES ($1, 1000);',
+          'INSERT INTO selection_realestate(realestate_id, selection_id) VALUES ($1, $2);',
           [Number(realEstates[i]), id],
         );
       }
