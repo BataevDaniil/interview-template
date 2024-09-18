@@ -1,0 +1,11 @@
+GET localhost:8080/project?limit=2&offset=1
+Content-Type: application/json
+
+
+###
+POST localhost:8080/selection
+Content-Type: application/json
+
+{
+  "realEstates": [2, 3]
+}
